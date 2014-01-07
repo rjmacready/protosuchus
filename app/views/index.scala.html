@@ -1,11 +1,23 @@
 
 @mindex {
-	<div>	
-		Hello Mr. Protosuchus!	
-		Make a Query!
+	<h1>Protosuchus</h1>
+	<h2>The basal local filesystem search engine</h2>
+	<div>
+		<div>	
+			Hello Mr. Protosuchus!
+			Make a Query!
+	    </div>
+	    <form action="query" method="GET">
+	    	Query: <input name="strquery" />
+	    	<input type="submit" value="Wander" />
+	    </form>
     </div>
-    <form action="query" method="GET">
-    	Query: <input name="strquery" />
-    	<input type="submit" value="Wander" />
-    </form>
+    <div>
+	    Do you have something in your index?
+	    Do you want to add files to your index?
+	    <form action="indexme" method="POST">
+	    	Directory (full path, hand written (sorry...)) <input name="indexme" />
+	    	<input type="submit" value="Index me" />
+	    </form>
+    </div>
 }

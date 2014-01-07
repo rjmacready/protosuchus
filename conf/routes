@@ -7,5 +7,9 @@ GET     /                           controllers.Application.index
 
 GET     /query                      controllers.Application.queryResult
 
+GET		/playindex					controllers.Application.playindex
+
+POST	/indexme					controllers.Application.indexDirOrFile
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
