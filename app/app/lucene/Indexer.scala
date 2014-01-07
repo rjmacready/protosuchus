@@ -73,6 +73,8 @@ object Indexer {
 	        	  //println("* pdf indexing");
 	        	  
 	        	  try {
+	        	    println("Indexing file " + docDirOrFile.getAbsolutePath())
+	        	    
 	        	    val doc = new Document()
 	        	  
 		        	  val pdfParser = new PDFParser(fis)
@@ -90,6 +92,10 @@ object Indexer {
 		        	  
 		        	  //println("* updating " + docDirOrFile.getPath());
 		        	  writer.updateDocument(new Term("path", docDirOrFile.getPath()), doc)
+	        	  } catch {
+	        	    case ex => 
+	        	      		println("Some exception with file " + docDirOrFile.getAbsolutePath() + ", skipping")
+	        	    		return
 	        	  }
 	        	  
 	          } else {	          
