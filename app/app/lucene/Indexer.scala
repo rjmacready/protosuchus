@@ -28,7 +28,12 @@ object Indexer {
   
 	def indexDirOrFile(dirOrFile : String) {
 	  val docDir = new File(dirOrFile)
-	  // TODO check if exists!
+	  
+	  // check if exists!
+	  if(!docDir.exists()) {
+	    return;
+	  }
+	  
 	  println("Indexing " + dirOrFile)
 	  
 	  val idxDir = new File("testblobs\\idx")

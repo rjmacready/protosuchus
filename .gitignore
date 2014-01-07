@@ -18,3 +18,4 @@ testblobs/docs
 .cache
 .target
 bin
+.worksheet
