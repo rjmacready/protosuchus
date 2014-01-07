@@ -5,12 +5,12 @@ import play.api.mvc._
 import play.api.data._
 import play.api.data.Forms._
 import lucene.Query
+import app.lucene.Indexer
+import views.html.defaultpages.badRequest
 
 
 object Application extends Controller {
-	val queryForm = Form(
-	  "strquery" -> nonEmptyText
-	)
+
 
   def index = Action {
     Ok(views.html.index())
@@ -19,6 +19,10 @@ object Application extends Controller {
   def playindex = Action {
     Ok(views.html.playindex("Your new application is ready."))
   }
+  
+  val queryForm = Form(
+	  "strquery" -> nonEmptyText
+  )
   
   def queryResult = Action { implicit request =>    
     queryForm.bindFromRequest.fold(
@@ -32,9 +36,20 @@ object Application extends Controller {
 	    })    
   }
   
-  def indexDirOrFile = Action {
-    Ok(views.html.index())
-    //Redirect(index)
+  val indexmeForm = Form(
+      "indexme" -> nonEmptyText
+  )
+  
+  def indexDirOrFile = Action { implicit request =>
+    indexmeForm.bindFromRequest.fold(
+        erros => {
+          BadRequest(views.html.index()) 
+        },
+        indexme => {
+          Indexer.indexDirOrFile(indexme)
+          Redirect(routes.Application.index)
+        }
+    )
   }
   
 }
