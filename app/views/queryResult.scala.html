@@ -1,0 +1,19 @@
+@(strquery: String, results: Array[(org.apache.lucene.search.ScoreDoc, org.apache.lucene.search.IndexSearcher)])
+
+@mindex {
+	<div>
+		You asked for <b>@strquery</b>
+	</div>
+	<div>
+		Your result:
+		<ul>
+			@results.map { doc_searcher =>
+				<li>					
+					A doc!
+					@doc_searcher._2.doc(doc_searcher._1.doc).get("path")
+					Relevance: @doc_searcher._1.score
+				</li>
+			}
+		</ul>
+	</div> 
+}

@@ -13,3 +13,8 @@ dist
 /.project
 /RUNNING_PID
 /.settings
+testblobs/idx
+testblobs/docs
+.cache
+.target
+bin
