@@ -1,7 +1,12 @@
-@(message: String)
+@(content: Html)
 
-@main("Welcome to Play") {
+<!DOCTYPE html>
 
-    @play20.welcome(message)
-
-}
+<html>
+	<head>
+		<title>Wandering protosuchus</title>
+	</head>
+    <body>
+        @content
+    </body>
+</html>
