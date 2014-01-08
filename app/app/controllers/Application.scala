@@ -57,11 +57,16 @@ object Application extends Controller {
   }
   
   def statusFeed() = WebSocket.using[String] { implicit request =>
-  	val in = Iteratee.ignore[String]
-  	val getval = { "sd" }
+    var i = 0
+  	val getval = { 
+      i += 1
+      println("beep")
+      i.toString() 
+    }
   	
+  	val in = Iteratee.ignore[String]
   	val out = Enumerator.repeatM {
-  	  Promise.timeout(getval, 3, TimeUnit.SECONDS)
+  	  Promise.timeout(getval, 1, TimeUnit.SECONDS)
   	}
   	
   	(in, out)
