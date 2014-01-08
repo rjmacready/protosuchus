@@ -1,0 +1,19 @@
+@(implicit request: RequestHeader)
+
+@mindex {
+	<div>
+		Indexing something ... wait a sec
+	</div>
+	<div id="status">
+	
+	</div>
+	<script src="@routes.Assets.at("javascripts/jquery-1.9.0.min.js")" type="text/javascript"></script>
+	<script>
+	$(function() {
+		var ws = new WebSocket("@routes.Application.statusFeed.webSocketURL()");
+		ws.onmessage = function(msg) {
+			$('#status').text(msg.data);
+		};
+	});
+	</script>
+}
