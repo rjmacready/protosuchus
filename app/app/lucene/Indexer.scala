@@ -40,8 +40,8 @@ object Indexer {
 	  
 	  val dir : Directory = FSDirectory.open(idxDir)
 	  
-	  val analyzer : Analyzer= new StandardAnalyzer(Version.LUCENE_46)
-	  val iwc : IndexWriterConfig = new IndexWriterConfig(Version.LUCENE_46, analyzer)
+	  val analyzer : Analyzer= new StandardAnalyzer(Version.LUCENE_30)
+	  val iwc : IndexWriterConfig = new IndexWriterConfig(Version.LUCENE_30, analyzer)
 	  
 	  iwc.setOpenMode(OpenMode.CREATE_OR_APPEND)
 	  
