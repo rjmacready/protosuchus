@@ -32,9 +32,9 @@ class LQuery (root : String) {
 	  
 	  val searcher : IndexSearcher = new IndexSearcher(reader);
 	  
-	  val analyzer : Analyzer = new StandardAnalyzer(Version.LUCENE_30);
+	  val analyzer : Analyzer = new StandardAnalyzer(Version.LUCENE_46);
 	  
-	  val parser = new QueryParser(Version.LUCENE_30, field, analyzer)
+	  val parser = new QueryParser(Version.LUCENE_46, field, analyzer)
 	  
 	  val query = parser.parse(strquery)
 	  	  

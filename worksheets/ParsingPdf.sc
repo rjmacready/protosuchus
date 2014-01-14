@@ -6,14 +6,14 @@ import java.io.FileInputStream;
 object ParsingPdf {
   val pdfParser = new PDFParser(new FileInputStream(".\\workspace\\protosuchus\\testblobs\\docs\\01.pdf"))
                                                   //> pdfParser  : org.apache.pdfbox.pdfparser.PDFParser = org.apache.pdfbox.pdfpa
-                                                  //| rser.PDFParser@3ed4b480
+                                                  //| rser.PDFParser@4590973e
   pdfParser.parse()
   val cd = pdfParser.getDocument()                //> cd  : org.apache.pdfbox.cos.COSDocument = org.apache.pdfbox.cos.COSDocument@
-                                                  //| 3dad39f8
+                                                  //| 5b27706d
   val stripper = new PDFTextStripper()            //> stripper  : org.apache.pdfbox.util.PDFTextStripper = org.apache.pdfbox.util.
-                                                  //| PDFTextStripper@7893b645
+                                                  //| PDFTextStripper@db8779
   val pddoc = new PDDocument(cd)                  //> pddoc  : org.apache.pdfbox.pdmodel.PDDocument = org.apache.pdfbox.pdmodel.PD
-                                                  //| Document@7a5e66cc
+                                                  //| Document@44a5b703
 	                
   val text = stripper.getText(pddoc)              //> text  : String = "Types and Programming Languages
                                                   //| Types and Programming Languages

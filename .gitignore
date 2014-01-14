@@ -15,6 +15,8 @@ dist
 /.settings
 testblobs/idx
 testblobs/docs
+testblobs/models
+testblobs/outs
 .cache
 .target
 bin
